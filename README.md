@@ -79,7 +79,7 @@ Your menu should look like this:
 
 ### **Customer**
 
-#### Fields
+#### Customer Fields
 
 | field                 | type              | example data           |
 | --------------------- | ----------------- | ---------------------- |
@@ -90,7 +90,7 @@ Your menu should look like this:
 | last_name             | str               | Bon                    |
 | current_video_rentals | list of str's     | ['Up']                 |
 
-#### Methods
+#### Customer Methods
 
 | name                        | parameters     | returns                                                                                                                                                                                                              | endstate                                                                                                                                         |
 | --------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -105,7 +105,7 @@ Your menu should look like this:
 
 ### **Video**
 
-#### Fields
+#### Video Fields
 
 | field            | type           | example data      |
 | ---------------- | -------------- | ----------------- |
@@ -116,7 +116,7 @@ Your menu should look like this:
 | release_year     | int            | 2014              |
 | copies_available | int            | 1                 |
 
-#### Methods
+#### Video Methods
 
 | name                      | parameters  | returns                                               | endstate                                                                                    |
 | ------------------------- | ----------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------- |
@@ -128,24 +128,24 @@ Your menu should look like this:
 
 ### **Media**
 
-#### Fields
+#### Media Fields
 
 | field | type | example data |
 | ----- | ---- | ------------ |
 | id    | int  | 1            |
 
-#### Abstract Class Methods
+#### Media Abstract Class Methods
 
 | name               | endstate                                                                                                                                                                      |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | load_data          | Both Video and Customer will utilize this method with Polymorphism to unpack their respective csv files                                                                       |
-| get\_\_an_instance | Both Video and Customer will utilize this method with Polymorphism to get a specific instance by either title or id                                                           |
+| get\_an_instance | Both Video and Customer will utilize this method with Polymorphism to get a specific instance by either title or id                                                           |
 | return_a_video     | Both Video and Customer will utilize this method with Polymorphism to either remove a title from a customers current_video_rentals list and increase a videos copies_avilable |
 | rent_a_video       | Both Video and Customer will utilize this method with Polymorphism to either add a title to a customers current_video_rentals list and decrease a videos copies_avilable      |
 
 ## Running Tests
 
-This assignment provides a pytest testsuite that will be utilized to grade your assessment. 
+This assignment provides a pytest testsuite that will be utilized to grade your assessment.
 
 **NOTE: This test suite is a copy of the test suite utilized by GITHUB actions altering it will not help you**
 
