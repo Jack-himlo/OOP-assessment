@@ -1,6 +1,3 @@
-import csv
-
-
 class Customer:
     customers = {}
 
