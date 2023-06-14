@@ -19,6 +19,11 @@ https://user-images.githubusercontent.com/105952966/234780739-8bdc9d56-4b44-46f2
 
 - This assessment should be completed using Python.
 - This assessment will utilize a `pytest` test suite.
+- Install all dependencies by running
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Challenge
 

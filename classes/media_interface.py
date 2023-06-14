@@ -1,2 +1,0 @@
-class Media:
-    pass
