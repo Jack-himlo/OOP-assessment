@@ -13,7 +13,8 @@ class Store:
         return self._name
 
     def customer_type_maker(self, row):
-        match row.get("account_type"):
+        account_type = row.get("account_type")
+        match account_type:
             case "sx":
                 return Customer_sx(**row)
             case "sf":
