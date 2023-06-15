@@ -1,8 +1,8 @@
-# Assessment 2: Object Oriented Programming + CSV Reading
+# **Assessment 2: Object Oriented Programming + CSV Reading**
 
 ## **Video Inventory Manager**
 
-https://user-images.githubusercontent.com/105952966/234780739-8bdc9d56-4b44-46f2-b40d-ce5648975c38.mp4
+https://github.com/Code-Platoon-Curriculum/curriculum/assets/105952966/68d51653-9db4-445a-8b8e-ce0e2f14b2a4
 
 ## Important Grading Information
 
@@ -11,15 +11,15 @@ https://user-images.githubusercontent.com/105952966/234780739-8bdc9d56-4b44-46f2
   - _5% penalty_: If you complete and submit the retake **within one week** of receiving your grade.
   - _10% penalty_: If you complete and submit the retake **by the start of week 12**. A retake for this assessment WILL NOT be accepted after this date.
 
-## Rules / Process
-
-- This test is fully open notes and open Google, but is not to be completed with the help of other students/individuals.
-
 ## Requirements
 
 - This assessment should be completed using Python.
 - This assessment will utilize a `pytest` test suite.
 - Install all dependencies by running
+
+### Rules / Process
+
+- This test is fully open notes and open Google, but is not to be completed with the help of other students/individuals.
 
 ```bash
 pip install -r requirements.txt
@@ -52,25 +52,25 @@ Your application should allow:
 
 - Viewing the current video inventory for the store
 - Viewing a customer's current rented videos
-  - customer _by id_
-  - each title should be listed separately (i.e. not displayed with slashes from the CSV file)
+  - Get a customer _by id_
+  - Display a list of currently rented titles
 - Adding a new customer
-  - you should not have an initial list of video rentals assigned to a newly created customer
-  - can you prevent duplicate ids from existing?
+  - You should not have an initial list of video rentals assigned to a newly created customer
+  - No duplicate ID's
 - Renting a video out to a customer
-  - video _by title_
-  - customer _by id_
-  - **IMPORTANT:** Customers should be limited based on their account type. Your application should enforce these limitations when attempting to rent a video!
+  - Get video _by title_
+  - Decriment video copies
 - Returning a video from a customer
-  - video _by title_
-  - customer _by id_
+  - Get video _by title_
+  - Incriment video copies
 - Exiting the application
+- **IMPORTANT:** Customers should be limited based on their account type. Your application should enforce these limitations when attempting to rent a video!
 
 Be sure to give careful consideration into what data structures & data types (including classes) you might need to use in your application logic.
 
 Your menu should look like this:
 
-```
+```bash
 == Welcome to Code Platoon Video! ==
 1. View store video inventory
 2. View customer rented videos
@@ -80,82 +80,101 @@ Your menu should look like this:
 6. Exit
 ```
 
-## Classes Break Down
+## Class Breakdown
 
-### **Customer**
+### Customer
 
-#### Customer Fields
+Attributes
 
-| field                 | type              | example data           |
-| --------------------- | ----------------- | ---------------------- |
-| list_of_customers     | dict of Customers | {1: Customer(1)}       |
-| id                    | int               | 1                      |
-| account_type          | str               | ['sx', 'px','sf' 'pf'] |
-| first_name            | str               | John                   |
-| last_name             | str               | Bon                    |
-| current_video_rentals | list of str's     | ['Up']                 |
+| attribute            | type           | example data      | cls or inst |
+| ---------------- | -------------- | ----------------- | --- |
+| customers   | dict | {1: Customer(1)}  | cls |
+| _id               | int            | 1                 | inst |
+| first_name           | str            | John          | inst |
+| last_name           | str            | Brawn           | inst |
+| _account_type    | str           | sx             | inst |
+| _current_video_rentals | list           | ['Toy Story'] | inst |
 
-#### Customer Methods
+Getters and Setters
 
-| name                        | parameters     | returns                                                                                                                                                                                                              | endstate                                                                                                                                         |
-| --------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| load_data                   | None           | None                                                                                                                                                                                                                 | dict of Customers will have all Customer instances from our CSV with `current_video_rentals` as a list of video titles.                          |
-| get_an_instance             | None           | Customer                                                                                                                                                                                                             | Gets a Customer from the list_of_customers dict by id                                                                                            |
-| return_a_video              | None           | {video_title} has been removed from your list of rentals, thank you!                                                                                                                                                 | A video is removed from the Customers current_video_rentals list and a Videos copies_avilable is increased                                       |
-| rent_a_video                | None           | {video_title} has been added to your list of rentals, thank you! OR You either already hold this video or \nthis video is not covered by your current account type! OR This title doesn't match any videos in stock! | A video title is added to the Customer current_video_rentals list and a Videos copies_avilable is decreased                                      |
-| construct_new_customer_dict | None           | {dict with all of Customer init fields}                                                                                                                                                                              | Returns a dict holding all of a new customers information as values and their corresponding fields as keys                                       |
-| create_new_customer         | customer_dict  | "{customer['first_name']} has been added as a customer! \nCustomer ID: {new_customer.id}"                                                                                                                            | A new customer instance is created and added to the list_of_customers dict with the customers id as a key and the customer itself as a the value |
-| view_customer_rented_videos | None           | Customer instance                                                                                                                                                                                                    | Displays a customers currently rented videos and then returns said customer for further actions                                                  |
-| validate_video_rental       | Video Instance | True OR False                                                                                                                                                                                                        | Evaluates if a Customers meets the account type conditions to rent out a a video                                                                 |
+| property     | type   | parent | input |
+|--------------|--------|-------|----|
+| id           | getter | _id | N/A   |
+| current_video_rentals| getter | _current_video_rentals| N/A |
+| rent_a_video | setter | _current_video_rentals|("Toy Story", "G")|
+| return_a_video | setter |_current_video_rentals| title |
 
-### **Video**
+Methods
 
-#### Video Fields
+| methods            | type           | example return  | cls or inst |
+| ---------------- | -------------- | ----------------- | --- |
+| get_customer_by_id | Customer Class inst | Customer(1) | cls |
+| get_customer_rented_videos   | str | f"{self.first_name} has the following rentals:\n{self.current_video_rentals}" | inst |
+| create_customer  | dict   | {'id':7,'first_name':str, 'last_name':str, 'account_type':str}| cls |
 
-| field            | type           | example data      |
-| ---------------- | -------------- | ----------------- |
-| list_of_videos   | list of Videos | [Video Object(1)] |
-| id               | int            | 1                 |
-| title            | str            | Up                |
-| rating           | str            | PG                |
-| release_year     | int            | 2014              |
-| copies_available | int            | 1                 |
+### Customer_pf
 
-#### Video Methods
+- Inherits all attributes and methods from the `Customer` class
+- Overrides `rent_a_video` method to meet account conditions
 
-| name                      | parameters  | returns                                               | endstate                                                                                    |
-| ------------------------- | ----------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| display_current_inventory | None        | None                                                  | Displays each video instance inside the list_of_videos                                      |
-| load_data                 | None        | None                                                  | Will create and append a video instance from the inventory csv onto the list_of_videos list |
-| get_an_instance           | video_title | Video instance                                        | Will grab a video instance from the list_of_videos by title                                 |
-| return_a_video            | None        | {self.title} was successfully returned, thank you!    | A videos copies_available is increased                                                      |
-| rent_a_video              | None        | {self.title} was successfully checked out, thank you! | A videos copies_available is decreased                                                      |
+### Customer_sf
 
-### **Media**
+- Inherits all attributes and methods from the `Customer` class
+- Overrides `rent_a_video` method to meet account conditions
 
-#### Media Fields
+### Customer_sx
 
-| field | type | example data |
-| ----- | ---- | ------------ |
-| id    | int  | 1            |
+- Inherits all attributes and methods from the `Customer` class
+- Overrides `rent_a_video` method to meet account conditions
 
-#### Media Abstract Class Methods
+### Customer_px
 
-| name               | endstate                                                                                                                                                                      |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| load_data          | Both Video and Customer will utilize this method with Polymorphism to unpack their respective csv files                                                                       |
-| get\_an_instance | Both Video and Customer will utilize this method with Polymorphism to get a specific instance by either title or id                                                           |
-| return_a_video     | Both Video and Customer will utilize this method with Polymorphism to either remove a title from a customers current_video_rentals list and increase a videos copies_avilable |
-| rent_a_video       | Both Video and Customer will utilize this method with Polymorphism to either add a title to a customers current_video_rentals list and decrease a videos copies_avilable      |
+- Inherits all attributes and methods from the `Customer` class
+- Utilizes inherited `rent_a_video` method that already meets account conditions
 
-## Running Tests
+### Video
 
-This assignment provides a pytest testsuite that will be utilized to grade your assessment.
+Attributes
 
-**NOTE: This test suite is a copy of the test suite utilized by GITHUB actions altering it will not help you**
+| attribute            | type           | example data      | cls or inst |
+| ---------------- | -------------- | ----------------- | --- |
+| videos   | dict | {"Toy Story":Video Object(1),} | cls |
+| _id               | int            | 1                 | inst |
+| _title            | str            | Up                | inst |
+| _rating           | str            | PG                | inst |
+| release_year     | int            | 2014              | inst |
+| _copies_available | int            | 1                 | inst |
 
-To run the test suite run the following:
+Getters and Setters
 
-```bash
- pytest tests.py -v
-```
+| property     | type   | parent | input |
+|--------------|--------|-------|----|
+| id           | getter | _id | N/A   |
+| title          | getter | _title | N/A   |
+| rating           | getter | _rating | N/A   |
+| copies_available | getter | _copies_available | N/A   |
+| rent_a_video | setter | _copies_available|int|
+| return_a_video | setter |_copies_available| int |
+
+Methods
+
+| methods            | type           | example return  | cls or inst |
+| ---------------- | -------------- | ----------------- | --- |
+| get_a_video_by_title | Video Class inst | Video Object(1) | cls |
+| list_inventory| None | Prints each videos _str | cls |
+
+## Store
+
+Attributes
+
+| attribute            | type           | example data      | cls or inst |
+| ---------------- | -------------- | ----------------- | --- |
+| name   | str | Code Platoon | inst |
+
+Methods
+
+| methods            | type           | input | example return  | cls or inst |
+| ---------------- | -------------- | ------|----------- | --- |
+| customer_type_maker | Customer Class inst | {'id':7,'first_name':str, 'last_name':str, 'account_type':str}| Customer Object(1) | inst |
+| load_data| None | file name i.e. inventory or customer | None| inst |
+| run_the_store | str | None |Thank you, please come again!| inst |
