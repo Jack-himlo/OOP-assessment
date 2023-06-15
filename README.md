@@ -2,7 +2,7 @@
 
 ## **Video Inventory Manager**
 
-https://github.com/Code-Platoon-Curriculum/curriculum/assets/105952966/68d51653-9db4-445a-8b8e-ce0e2f14b2a4
+https://github.com/codeplatoon-fullstack/assessment-2/assets/105952966/c6b34a83-59bd-4196-9c1e-af58ec1ebf6c
 
 ## Important Grading Information
 
