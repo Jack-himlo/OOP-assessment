@@ -1,8 +1,6 @@
 # **Assessment 1: Object Oriented Programming + CSV Reading**
 
-## **Video Inventory Manager**
-
-https://github.com/codeplatoon-fullstack/assessment-2/assets/105952966/c6b34a83-59bd-4196-9c1e-af58ec1ebf6c
+## **[Video Inventory Manager](https://drive.google.com/file/d/10WYWX2z_PODb-KfCgyv8VBJIFXx2EKfj/view?usp=drive_link)**
 
 ## Important Grading Information
 
@@ -17,13 +15,13 @@ https://github.com/codeplatoon-fullstack/assessment-2/assets/105952966/c6b34a83-
 - This assessment will utilize a `pytest` test suite.
 - Install all dependencies by running
 
-### Rules / Process
-
-- This test is fully open notes and open Google, but is not to be completed with the help of other students/individuals.
-
 ```bash
 pip install -r requirements.txt
 ```
+
+### Rules / Process
+
+- This test is fully open notes and open Google, but is not to be completed with the help of other students/individuals.
 
 ## Challenge
 
@@ -31,6 +29,7 @@ _Back in the day_, humans would actually leave their homes to go rent a physical
 
 Your Video Inventory Management application should manage the following data:
 
+- Load cutomer and video inventory data from the csv files provided
 - Manage customer information:
   - customer id
   - customer account type (sx/px/sf/pf)
@@ -102,15 +101,15 @@ Getters and Setters
 | id           | getter | _id | N/A   |
 | current_video_rentals| getter | _current_video_rentals| N/A |
 | rent_a_video | setter | _current_video_rentals|("Toy Story", "G")|
-| return_a_video | setter |_current_video_rentals| title |
+| return_a_video | setter |_current_video_rentals| "Toy Story" |
 
 Methods
 
-| methods            | type           | example return  | cls or inst |
-| ---------------- | -------------- | ----------------- | --- |
-| get_customer_by_id | Customer Class inst | Customer(1) | cls |
-| get_customer_rented_videos   | str | f"{self.first_name} has the following rentals:\n{self.current_video_rentals}" | inst |
-| create_customer  | dict   | {'id':7,'first_name':str, 'last_name':str, 'account_type':str}| cls |
+| methods            | return type    | example return  | cls or inst | input |
+| ---------------- | -------------- | ----------------- | --- | ---- |
+| get_customer_by_id | Customer Class inst | Customer(1) | cls | N/A |
+| get_customer_rented_videos   | str | f"{self.first_name} has the following rentals:\n{self.current_video_rentals}" | inst | N/A|
+| create_customer  | dict   | {'id':7,'first_name':str, 'last_name':str, 'account_type':str}| cls | N/A |
 
 ### Customer_pf
 
@@ -158,10 +157,10 @@ Getters and Setters
 
 Methods
 
-| methods            | type           | example return  | cls or inst |
-| ---------------- | -------------- | ----------------- | --- |
-| get_a_video_by_title | Video Class inst | Video Object(1) | cls |
-| list_inventory| None | Prints each videos _str | cls |
+| methods            | type           | example return  | cls or inst | input |
+| ---------------- | -------------- | ----------------- | --- | ---- |
+| get_a_video_by_title | Video Class inst | Video Object(1) | cls | N/A|
+| list_inventory| None | Prints each videos _str | cls | N/A |
 
 ## Store
 

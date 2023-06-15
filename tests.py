@@ -1,5 +1,5 @@
 # Importing necessary modules and classes
-from runner import Store
+from classes.store import Store
 from classes.customer import Customer
 from classes.customer_types import Customer_pf, Customer_sf, Customer_sx
 from classes.video import Video
