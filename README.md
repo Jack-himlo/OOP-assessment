@@ -16,7 +16,7 @@
 - Install all dependencies by running
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt #if this fails run `pip3 install -r requirements.txt'
 ```
 
 ### Rules / Process
