@@ -1,3 +1,4 @@
+
 # Write your independent Customer account type classes here
 class Customer_sx():
   pass

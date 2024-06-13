@@ -94,22 +94,28 @@ Attributes
 | _account_type    | str           | sx             | inst |
 | _current_video_rentals | list           | ['Toy Story'] | inst |
 
+> Every newly created Customer should have at minimum an empty list for `_current_video_rentals`
+
 Getters and Setters
 
 | property     | type   | parent | input |
 |--------------|--------|-------|----|
 | id           | getter | _id | N/A   |
 | current_video_rentals| getter | _current_video_rentals| N/A |
-| rent_a_video | setter | _current_video_rentals|("Toy Story", "G")|
-| return_a_video | setter |_current_video_rentals| "Toy Story" |
+| current_video_rentals| setter | _current_video_rentals| list |
+
+> current_video_rentals setter should only accept a list of video titles, if it is not a list type the setter should raise an exception with the following text: 'Current Video Rentals should only be a list'
 
 Methods
 
 | methods            | return type    | example return  | cls or inst | input |
 | ---------------- | -------------- | ----------------- | --- | ---- |
+| create_a_customer_dict  | dict   | {'id':7,'first_name':str, 'last_name':str, 'account_type':str}| static | N/A |
+| add_a_customer | str | f"{customer.first_name} has been added into our database!"| cls | Customer(1) |
 | get_customer_by_id | Customer Class inst | Customer(1) | cls | N/A |
 | get_customer_rented_videos   | str | f"{self.first_name} has the following rentals:\n{self.current_video_rentals}" | inst | N/A|
-| create_customer  | dict   | {'id':7,'first_name':str, 'last_name':str, 'account_type':str}| cls | N/A |
+| rent_a_video | str | f"{self.first_name} has the following rentals:\n{self.current_video_rentals}" | inst|("Toy Story", "G")|
+| return_a_video | str | f"{self.first_name} has the following rentals:\n{self.current_video_rentals}" |inst| "Toy Story" |
 
 ### Customer_pf
 
