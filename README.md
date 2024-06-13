@@ -158,8 +158,7 @@ Getters and Setters
 | title          | getter | _title | N/A   |
 | rating           | getter | _rating | N/A   |
 | copies_available | getter | _copies_available | N/A   |
-| rent_a_video | setter | _copies_available|int|
-| return_a_video | setter |_copies_available| int |
+| copies_available | setter | _copies_available|int|
 
 Methods
 
