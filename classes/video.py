@@ -33,14 +33,13 @@ class Video:
             self._copies_available = val
         else:
             raise Exception("This attribute could only be set to an int")
-        
+
     @classmethod
     def add_a_video(cls, video):
         if isinstance(video, Video):
             cls.videos[video.title] = video
             return f"{video.title} has been added to our inventory"
         raise Exception("This method will only accept an instance of the Video class")
-        
 
     @classmethod
     def get_a_video_by_title(cls):

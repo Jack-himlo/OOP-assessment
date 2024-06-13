@@ -63,7 +63,7 @@ class Customer:
     def add_a_customer(cls, customer):
         if customer and isinstance(customer, Customer):
             cls.customers[customer.id] = customer
-            return f"{customer.first_name} has been added into our database!"
+            return f"{customer.first_name} ID:{customer.id} has been added into our database!"
         else:
             raise Exception(
                 "This function will only accept an instance of the Customer class"

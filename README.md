@@ -180,5 +180,5 @@ Methods
 | methods            | type           | input | example return  | cls or inst |
 | ---------------- | -------------- | ------|----------- | --- |
 | customer_type_maker | Customer Class inst | {'id':7,'first_name':str, 'last_name':str, 'account_type':str}| Customer Object(1) | inst |
-| load_data| None | file name i.e. inventory or customer | None| inst |
+| load_data| None | file name i.e. videos or customers | None| inst |
 | run_the_store | str | None |Thank you, please come again!| inst |
