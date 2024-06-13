@@ -3,15 +3,7 @@ from classes.customer import Customer
 
 # Write your independent Customer account type classes here
 class Customer_sx(Customer):
-    def __init__(
-        self,
-        id: int,
-        first_name: str,
-        last_name: str,
-        account_type: str,
-        current_video_rentals: list = [],
-    ):
-        super().__init__(id, first_name, last_name, account_type, current_video_rentals)
+    
 
     def rent_a_video(self, video: tuple):
         if len(self.current_video_rentals) > 0:
@@ -23,27 +15,11 @@ class Customer_sx(Customer):
 
 
 class Customer_px(Customer):
-    def __init__(
-        self,
-        id: int,
-        first_name: str,
-        last_name: str,
-        account_type: str,
-        current_video_rentals: list = [],
-    ):
-        super().__init__(id, first_name, last_name, account_type, current_video_rentals)
+    pass
 
 
 class Customer_sf(Customer):
-    def __init__(
-        self,
-        id: int,
-        first_name: str,
-        last_name: str,
-        account_type: str,
-        current_video_rentals: list = [],
-    ):
-        super().__init__(id, first_name, last_name, account_type, current_video_rentals)
+    
 
     def rent_a_video(self, video: tuple):
         if len(self.current_video_rentals) > 0 or video[1] == "R":
@@ -57,15 +33,7 @@ class Customer_sf(Customer):
 
 
 class Customer_pf(Customer):
-    def __init__(
-        self,
-        id: int,
-        first_name: str,
-        last_name: str,
-        account_type: str,
-        current_video_rentals: list = [],
-    ):
-        super().__init__(id, first_name, last_name, account_type, current_video_rentals)
+    
 
     def rent_a_video(self, video: tuple):
         if len(self.current_video_rentals) > 2 or video[1] == "R":
