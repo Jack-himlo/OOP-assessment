@@ -2,7 +2,7 @@
 
 ## Important Grading Information
 
-- You need to get a 70% or better to pass ie 17/25 tests. (You must pass all assessments in order to graduate Code Platoon's program.)
+- You need to get a 70% or better to pass ie 18/25 tests. (You must pass all assessments in order to graduate Code Platoon's program.)
 - If you fail the assessment, you have can retake it once to improve your score. For this assessment...
   - _5% penalty_: If you complete and submit the retake **within one week** of receiving your grade.
   - _10% penalty_: If you complete and submit the retake **by the start of week 12**. A retake for this assessment WILL NOT be accepted after this date.
