@@ -1,0 +1,254 @@
+{
+  "tests": [
+    {
+      "name": "test_01_customer.py",
+      "setup": "",
+      "run": "pytest __tests__/test_01_customer.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_02_customer_attributes.py",
+      "setup": "",
+      "run": "pytest __tests__/test_02_customer_attributes.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_03_customer_properties.py",
+      "setup": "",
+      "run": "pytest __tests__/test_03_customer_properties.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_04_current_video_rental_setter.py",
+      "setup": "",
+      "run": "pytest __tests__/test_04_current_video_rental_setter.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_05_create_customer_dict.py",
+      "setup": "",
+      "run": "pytest __tests__/test_05_create_customer_dict.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_06_add_a_customer.py",
+      "setup": "",
+      "run": "pytest __tests__/test_06_add_a_customer.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_07_get_customer_by_id.py",
+      "setup": "",
+      "run": "pytest __tests__/test_07_get_customer_by_id.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_08_get_customer_videos.py",
+      "setup": "",
+      "run": "pytest __tests__/test_08_get_customer_videos.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_09_rent_return_a_video.py",
+      "setup": "",
+      "run": "pytest __tests__/test_09_rent_return_a_video.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_10_customer_inheritance.py",
+      "setup": "",
+      "run": "pytest __tests__/test_10_customer_inheritance.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_11_customer_pf_rent_a_video.py",
+      "setup": "",
+      "run": "pytest __tests__/test_11_customer_pf_rent_a_video.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_12_customer_sf_rent_a_video.py",
+      "setup": "",
+      "run": "pytest __tests__/test_12_customer_sf_rent_a_video.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_13_customer_px_rent_a_video.py",
+      "setup": "",
+      "run": "pytest __tests__/test_13_customer_px_rent_a_video.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_14_customer_sx_rent_a_video.py",
+      "setup": "",
+      "run": "pytest __tests__/test_14_customer_sx_rent_a_video.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_15_video_attributes.py",
+      "setup": "",
+      "run": "pytest __tests__/test_15_video_attributes.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_16_video_properties.py",
+      "setup": "",
+      "run": "pytest __tests__/test_16_video_properties.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_17_copies_available_setter.py",
+      "setup": "",
+      "run": "pytest __tests__/test_17_copies_available_setter.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_18_add_a_video.py",
+      "setup": "",
+      "run": "pytest __tests__/test_18_add_a_video.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_19_get_video_by_title.py",
+      "setup": "",
+      "run": "pytest __tests__/test_19_get_video_by_title.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_20_list_inventory_exist.py",
+      "setup": "",
+      "run": "pytest __tests__/test_20_list_inventory_exist.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_21_store_attributes.py",
+      "setup": "",
+      "run": "pytest __tests__/test_21_store_attributes.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_22_store_methods.py",
+      "setup": "",
+      "run": "pytest __tests__/test_22_store_methods.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_23_customer_type_maker.py",
+      "setup": "",
+      "run": "pytest __tests__/test_23_customer_type_maker.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_24_load_data.py",
+      "setup": "",
+      "run": "pytest __tests__/test_24_load_data.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test_25_run_the_store_proper.py",
+      "setup": "",
+      "run": "pytest __tests__/test_25_run_the_store_proper.py -s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    }
+  ]
+}
