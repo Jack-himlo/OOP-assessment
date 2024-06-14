@@ -1,17 +1,15 @@
 # **Assessment 1: Object Oriented Programming + CSV Reading**
 
-## **[Video Inventory Manager](https://drive.google.com/file/d/10WYWX2z_PODb-KfCgyv8VBJIFXx2EKfj/view?usp=drive_link)**
-
 ## Important Grading Information
 
-- You need to get a 75% or better to pass ie 19/26 tests. (You must pass all assessments in order to graduate Code Platoon's program.)
+- You need to get a 70% or better to pass ie 17/25 tests. (You must pass all assessments in order to graduate Code Platoon's program.)
 - If you fail the assessment, you have can retake it once to improve your score. For this assessment...
   - _5% penalty_: If you complete and submit the retake **within one week** of receiving your grade.
   - _10% penalty_: If you complete and submit the retake **by the start of week 12**. A retake for this assessment WILL NOT be accepted after this date.
 
 ## Requirements
 
-- This assessment should be completed using Python.
+- This assessment should be completed using Python Object Oriented Programming.
 - This assessment will utilize a `pytest` test suite.
 - Install all dependencies by running
 
@@ -58,10 +56,10 @@ Your application should allow:
   - No duplicate ID's
 - Renting a video out to a customer
   - Get video _by title_
-  - Decriment video copies
+  - Decrement video copies
 - Returning a video from a customer
   - Get video _by title_
-  - Incriment video copies
+  - Increment video copies
 - Exiting the application
 - **IMPORTANT:** Customers should be limited based on their account type. Your application should enforce these limitations when attempting to rent a video!
 
@@ -182,3 +180,5 @@ Methods
 | customer_type_maker | Customer Class inst | {'id':7,'first_name':str, 'last_name':str, 'account_type':str}| Customer Object(1) | inst |
 | load_data| None | file name i.e. videos or customers | None| inst |
 | run_the_store | str | None |Thank you, please come again!| inst |
+
+> `load_data` should build the dictionaries of Video.videos and Customer.customers with the proper information from the correct csv file upon an instance of the Store class.
