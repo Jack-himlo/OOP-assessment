@@ -42,7 +42,7 @@ class Customer:
 #add new customer class method
     @classmethod
     def add_a_customer(cls, customer):
-        #deconstruct dict
+        # deconstruct dict
         if isinstance(customer, dict):
             customer = cls(**customer) 
         # Ensure that the input is actually a Customer instance
@@ -111,12 +111,19 @@ class Customer:
             "last_name" : last_name,
             "account_type" : account_type
         }
-    # @classmethod
-    # def get_customer_by_id(cls):
-    #     customer_id = input("enter customer id to search: ")
-    #     if customer_id in cls.customer:
-    #         return cls.customer[customer_id]
-    #     print("No customer was found with that id")
+    @classmethod
+    def get_customer_by_id(cls):
+        while True:
+            try:
+                customer_id = input("enter customer id to search: ")
+                customer_id = int(customer_id)
+                break
+            except ValueError:
+                print("Invalid ID. PLease enter a number.")
+        if customer_id in cls.customer:
+            return cls.customer[customer_id]
+        else:
+            return f"No customer was found with that id"
 
 
 
