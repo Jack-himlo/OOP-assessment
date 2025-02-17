@@ -126,8 +126,11 @@ class Customer:
             return f"No customer was found with that id"
 
 
-
-
+    def get_customer_rented_videos(self):
+        if self._current_video_rentals:
+            return f"{self.first_name} has the following rentals:\n{self._current_video_rentals}"
+        return f"{self.first_name} has no current rentals."
+        
 
 
 # Customer.addCustomer()
