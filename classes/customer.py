@@ -146,17 +146,32 @@ class Customer:
     
     #define rent a video method
     def rent_a_video(self, video_title):
-        # from classes.video import Video
+        video = Video.videos.get(video_title)
+        #check if video in inventory
+        if not video:
+            return f"Error: {video_title} is not available in our inventory."
+        #check is copies are available 
+        if videos.copies_available < 1:
+            return f"Sorry, {video_title} is currently out of stock."
         #check account type, sort by max number of rentals
         if self._account_type.lower() == "sx" or self._account_type.lower() == "sf":
             max_rentals = 1
-            #check i
+            #check if account has max num of rentals
             if len(self._current_video_rentals) >= max_rentals:
                 return f"{self.first_name} has max amount of rentals"
         elif self._account_type.lower() == "px" or self._account_type.lower() == "pf":
             max_rentals = 3
             if len(self._current_video_rentals) >= max_rentals:
                 return f"{self.first_name} has max amount of rentals"
+        #check if family account
+        if self._account_type.upper() == "R":
+            return f"Account Retriction: {self.first_name} cannot rent R-rated movies."
+        #rent video to customer
+        self.current_video_rentals.append(video_title)
+        #update num of copies available
+        video.copies_available -= 1
+        #inform customer of update
+        return f" {self.first_name} has successfully rented '{video_title}' ."
             
         
             
