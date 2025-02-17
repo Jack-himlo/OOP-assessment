@@ -1,7 +1,7 @@
 # Write you Customer Class here
 class Customer:
     customer = {}
-    counter = 0
+    counter = 1
     def __init__(self, id, first_name, last_name, account_type, current_video_rentals = None):
         self._id = id
         Customer.counter += 1
@@ -24,18 +24,18 @@ class Customer:
         elif isinstance(rentals, str):
             self._current_video_rentals = [rentals]
         else:
-            print(f"no current rentals available")
+            print(f"no current rentals available\n")
 #view each instance of a "customer"    
     @classmethod
     def viewCustomer(cls):
         if not cls.customer:
-            print("No customers found.")
+            print("No customers found.\n")
             return
         for _id, customer in cls.customer.items():
             print(f"ID: {customer._id}")
             print(f"First name:  {customer.first_name}")
             print(f"Last name : {customer.last_name}")
-            print(f"Account type: {customer.account_type}")
+            print(f"Account type: {customer._account_type}")
             print(f"Current Videos Rented: {customer._current_video_rentals}\n")
         
 #add new customer class method
@@ -44,16 +44,42 @@ class Customer:
         #assign customer id
         _id = cls.counter
         #increasecounter for unique ID
-        cls.counter += 1
+        # cls.counter += 1
         #gather customer info
         first_name = input("Enter customer first name: ")
         last_name = input("Enter customer last name: ")
         account_type = input("Enter customer account type: ")
         #add new customer to class level dict customers
-        newCustomer = cls(customer_id,first_name, last_name, account_type)
-        cls.customer[customer_id] = newCustomer
+        newCustomer = cls(_id,first_name, last_name, account_type)
+        cls.customer[_id] = newCustomer
         
-        print(f"Customer {first_name} {last_name}'s account has been added")
+        print(f"Customer {first_name} {last_name}'s account has been added\n")
+    @classmethod
+    def deleteCustomer(cls):
+       #Loop interface until valid input
+        while True:
+        # toRemove = int(input("Enter the customer ID you would like to delete: "))
+            try:
+                toRemove = int(input("Enter the customer ID you would like to delete: "))
+                break
+            except ValueError:
+                print("Error: Customer ID must be a number.\n")
+
+        if toRemove in cls.customer:
+            cls.customer.pop(toRemove)
+            print(f"Customer ID: {toRemove}, has been removed.\n")
+        else:
+            print("There was no customer found with that ID\n")
+        
+
+
+
+
+Customer.addCustomer()
+Customer.addCustomer()
+Customer.viewCustomer()
+Customer.deleteCustomer()
+Customer.viewCustomer()
 
 
 
