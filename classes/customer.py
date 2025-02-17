@@ -2,9 +2,10 @@
 class Customer:
     customer = {}
     counter = 1
+
     def __init__(self, id, first_name, last_name, account_type, current_video_rentals = None):
         self._id = id
-        Customer.counter += 1
+        # Customer.counter += 1
         self.first_name = first_name
         self.last_name = last_name
         self._account_type = account_type
@@ -44,7 +45,7 @@ class Customer:
         #assign customer id
         _id = cls.counter
         #increasecounter for unique ID
-        # cls.counter += 1
+        cls.counter += 1
         #gather customer info
         first_name = input("Enter customer first name: ")
         last_name = input("Enter customer last name: ")
@@ -70,16 +71,41 @@ class Customer:
             print(f"Customer ID: {toRemove}, has been removed.\n")
         else:
             print("There was no customer found with that ID\n")
-        
+    @staticmethod
+    def  create_a_customer_dict():
+        valid_account_types = {"sx", "px", "sf", "pf"}
+        # Customer.counter += 1
+        while True:
+            first_name = input("Enter customer first name: ")
+            if first_name.isalpha() and len(first_name) > 1:
+                break
+            print("enter a valid first name")
+        while True:
+            last_name = input("Enter customer last name: ")
+            if last_name.isalpha() and len(last_name) > 1:
+                break
+            print("enter a valid last name")
+        while True:
+            account_type = input("Enter customer account type: ")
+            if account_type.lower() in valid_account_types:
+                break
+            print("Invalid account type. Please enter one of: sx, px, sf, pf.")
+        return {
+            "id" : Customer.counter,
+            "first_name" : first_name,
+            "last_name" : last_name,
+            "account_type" : account_type
+        }
 
 
 
 
-Customer.addCustomer()
-Customer.addCustomer()
-Customer.viewCustomer()
-Customer.deleteCustomer()
-Customer.viewCustomer()
+
+# Customer.addCustomer()
+# Customer.addCustomer()
+# Customer.viewCustomer()
+# Customer.deleteCustomer()
+# Customer.viewCustomer()
 
 
 
