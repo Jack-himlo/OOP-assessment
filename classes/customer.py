@@ -41,22 +41,37 @@ class Customer:
         
 #add new customer class method
     @classmethod
-    def addCustomer(cls):
-        #assign customer id
-        _id = cls.counter
-        #increasecounter for unique ID
-        cls.counter += 1
-        #gather customer info
-        first_name = input("Enter customer first name: ")
-        last_name = input("Enter customer last name: ")
-        account_type = input("Enter customer account type: ")
-        #add new customer to class level dict customers
-        newCustomer = cls(_id,first_name, last_name, account_type)
-        cls.customer[_id] = newCustomer
+    def add_a_customer(cls, customer):
+        #deconstruct dict
+        if isinstance(customer, dict):
+            customer = cls(**customer) 
+        # Ensure that the input is actually a Customer instance
+        if not isinstance(customer, cls):
+            raise TypeError("This function will only accept an instance of the Customer class")
+
+    # Store the provided Customer instance in the customer dictionary
+        cls.customer[customer.id] = customer
+
+    # Return success message
+        return f"{customer.first_name} has been added into our database!"
         
-        print(f"Customer {first_name} {last_name}'s account has been added\n")
+        
+        
+        # #assign customer id
+        # _id = cls.counter
+        # #increasecounter for unique ID
+        # cls.counter += 1
+        # #gather customer info
+        # first_name = input("Enter customer first name: ")
+        # last_name = input("Enter customer last name: ")
+        # account_type = input("Enter customer account type: ")
+        # #add new customer to class level dict customers
+        # newCustomer = cls(_id,first_name, last_name, account_type)
+        # cls.customer[_id] = newCustomer
+        
+        # print(f"Customer {first_name} {last_name}'s account has been added\n")
     @classmethod
-    def deleteCustomer(cls):
+    def delete_a_Customer(cls):
        #Loop interface until valid input
         while True:
         # toRemove = int(input("Enter the customer ID you would like to delete: "))
@@ -96,6 +111,13 @@ class Customer:
             "last_name" : last_name,
             "account_type" : account_type
         }
+    # @classmethod
+    # def get_customer_by_id(cls):
+    #     customer_id = input("enter customer id to search: ")
+    #     if customer_id in cls.customer:
+    #         return cls.customer[customer_id]
+    #     print("No customer was found with that id")
+
 
 
 
