@@ -1,5 +1,4 @@
 # Write your video Class here
-import os
 import csv
 
 class Video:
@@ -41,6 +40,7 @@ class Video:
         if value < 0:
             raise ValueError ("Copiesavailable cannot be negative ")
         self._copies_available = value
+    #import csv using direct path
     @classmethod 
     def load_data(cls, filename= "../data/videos.csv"):
         try:
@@ -59,6 +59,45 @@ class Video:
             print("Current Videos in inventory: ", list(cls.videos.keys()))
         except FileNotFoundError:
             print(f"Error: {filename} not found")
+    #add a video
+    @classmethod
+    def add_a_video(cls,video):
+        
+        #check if video is a dict and decunstruct if it is 
+        if isinstance(video, dict):
+            video = Video(**video)
+        #return typeerror if video is not in class Video
+        if not isinstance(video, Video):
+            raise TypeError("Only Video instances can be added")
+        #store video in video dict by key of title
+        cls.videos[video.title] = video
+        #return success message
+        return f"Video '{video.title}' has been added to inventory."
+    #get video by title
+    @classmethod
+    def get_a_video_by_title(cls, title= None):
+        
+        #loop until valid title is found
+        while True:
+        #prompt user to enter title to search
+            if title is None:
+                title = input("Enter the title of the video: ")
+            if not isinstance(title, str):
+                raise TypeError("Title must be a string.")
+        #format title
+            title = title.strip()
+        #search for video by title
+            video = cls.videos.get(title)
+
+            if video is not None:
+                # raise ValueError(f"Error: '{title}' not found in inventory.")
+                return video
+            print(f"Error: '{title}' not found in inventory. Please try again")
+            title = None
+
+
+            
+
 
 
 Video.load_data()
