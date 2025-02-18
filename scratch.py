@@ -2,7 +2,6 @@
 from classes.video import Video
 
 class Customer:
-    Video.load_data()
     customer = {}
     counter = 1
 
@@ -148,6 +147,81 @@ class Customer:
     #define rent a video method
     def rent_a_video(self, video_title):
         title, rating = video_title
+        print(f"{self.first_name} is trying to rent '{title}'")
+        
+        video = Video.videos.get(title)
+        #check if video in inventory
+        if not video:
+            return f"Error: {title} is not available in our inventory."
+        #check is copies are available 
+        if video.copies_available < 1:
+            return f"Sorry, {title} is currently out of stock."
+        
+        
+        
+        
+        max_rentals = 1 if self._account_type in ["sx", "sf"] else 3
+        if len(self._current_video_rentals) >= max_rentals:
+            return f"{self.first_name} has max amount of rentals."
+         
+        
+        #    if len(self._current_video_rentals) >= max_rentals:
+        #     return f"{self.first_name} has max amount of rentals"
+        # #check if family account
+        if self._account_type in ["sf", "pf"] and video.rating == "R":
+            return f"Account Restriction: {self.first_name} cannot rent R-rated movies."
+        
+        #show current rentals
+        #print(f"Before rental: {self.current_video_rentals}")
+        #rent video to customer
+        if title in self._current_video_rentals:
+            return f"{self.first_name} already has '{title}' rented."
+        self._current_video_rentals.append(title)
+        #update num of copies available
+        video.copies_available -= 1
+        #show current rentals 
+        #print(f"After rental: {self._current_video_rentals}")
+        #inform customer of update
+        return f" {self.first_name} has successfully rented '{title}' ."
+    
+            
+        
+            
+
+    #define return a video
+    def return_a_video(self, video_title):
+
+        #check current rentals
+        #print(f"Before return: {self._current_video_rentals}")
+        #check if title of movie is in customer rentals
+        if video_title not in self._current_video_rentals:
+            print(f"ERROR: {video_title} not found in {self._current_video_rentals}")  
+            raise ValueError(f"{self.first_name} does not have '{video_title}' rented .")
+        ##remove title from customer rentals to return
+        self._current_video_rentals.remove(video_title)
+        #verify return of video_title
+        #print(f"After return: {self._current_video_rentals}")
+
+        #updated num of copies available
+        video = Video.videos.get(video_title)
+        if video:
+            video.copies_available += 1
+        else:
+            print(f"Warning: {video_title} not found in inventory.")
+
+        return f"{self.first_name} has returned '{video_title}'."
+    
+
+        
+
+
+# Customer.addCustomer()
+# Customer.addCustomer()
+# Customer.viewCustomer()
+# Customer.deleteCustomer()
+# Customer.viewCustomer()
+
+ title, rating = video_title
         print(f"{self.first_name} is trying to rent '{title}' (Account Type: {self._account_type})")
         # Raise an error if family account tries to rent an R-rated movie
         if self._account_type in ["sf", "pf"] and rating == "R":
@@ -185,30 +259,33 @@ class Customer:
         print(f"After rental: {self._current_video_rentals}") 
         return f"{self.first_name} has successfully rented '{title}'."    
        
-            
 
-    #define return a video
-    def return_a_video(self, video_title):
-        if video_title not in self._current_video_rentals:
-            raise ValueError(f"{self.first_name} does not have '{video_title}' rented.")
+title, rating = video_title
+        print(f"{self.first_name} is trying to rent '{title}' (Account Type: {self._account_type})")
 
-        self._current_video_rentals.remove(video_title)
-        video = Video.videos.get(video_title)
-        if video:
-            video.copies_available += 1
-        if video is None:
-            raise ValueError(f"Error: {video_title} not found in inventory.")
+    # Restrict R-rated movies for family accounts
+        if self._account_type in ["sf", "pf"] and rating == "R":
+            raise ValueError(f"Account Restriction: {self.first_name} cannot rent R-rated movies.")  # ✅ Raises error instead of returning
 
-        return f"{self.first_name} has returned '{video_title}'."    
+    # Check if movie exists
+        video = Video.videos.get(title)
+        if not video:
+            raise ValueError(f"Error: {title} is not available in our inventory.")  # ✅ Raise error if movie doesn't exist
 
-        
+    # Check if copies are available
+        if video.copies_available < 1:
+            raise ValueError(f"Sorry, {title} is currently out of stock.")  # ✅ Raise error if out of stock
 
+    # Enforce rental limits
+        max_rentals = 1 if self._account_type in ["sx", "sf"] else 3
+        if len(self._current_video_rentals) >= max_rentals:
+            raise ValueError(f"{self.first_name} has reached the rental limit ({max_rentals}).")  # ✅ Raise error if limit exceeded
 
-# Customer.addCustomer()
-# Customer.addCustomer()
-# Customer.viewCustomer()
-# Customer.deleteCustomer()
-# Customer.viewCustomer()
+    # Prevent duplicate rentals
+        if title in self._current_video_rentals:
+            raise ValueError(f"{self.first_name} already has '{title}' rented.")  # ✅ Raise error if movie already rented
 
-
-
+    # Rent the movie
+        self._current_video_rentals.append(title)
+        video.copies_available -= 1
+        print(f"{self.first_name} successfully rented '{title}'.")

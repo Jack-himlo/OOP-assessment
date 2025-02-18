@@ -1,4 +1,5 @@
 # Write your video Class here
+import os
 import csv
 
 class Video:
@@ -41,19 +42,23 @@ class Video:
             raise ValueError ("Copiesavailable cannot be negative ")
         self._copies_available = value
     @classmethod 
-    def load_data(cls, filename = "data/videos.csv"):
+    def load_data(cls, filename= "../data/videos.csv"):
         try:
-            with open("data/videos.csv") as csvfile:
+            with open(filename, mode="r", newline= '', encoding="utf-8" ) as csvfile:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
                     video = Video(
-                            id = row["id"],
-                            title = row["title"],
-                            rating  = row["rating"],
-                            release_year = int(row["release_year"]),
-                            copies_available = int(row["copies_available"]),
+                            id = int(row["id"].strip()),
+                            title = row["title"].strip(),
+                            rating  = row["rating"].strip(),
+                            release_year = int(row["release_year"].strip()),
+                            copies_available = int(row["copies_available"].strip()),
                             )
                     cls.videos[video.title] = video
             print("Video data loaded successfully")
+            print("Current Videos in inventory: ", list(cls.videos.keys()))
         except FileNotFoundError:
             print(f"Error: {filename} not found")
+
+
+Video.load_data()
